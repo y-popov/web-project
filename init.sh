@@ -6,3 +6,4 @@ sudo /etc/init.d/gunicorn restart
 sudo gunicorn --bind 0.0.0.0:8080 hello &
 sudo /etc/init.d/mysql start
 mysql -uroot -e "create database ask_db"
+python ask/manage.py syncdb

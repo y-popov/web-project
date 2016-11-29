@@ -24,7 +24,7 @@ def popular(request):
 	limit = 10
 	page = request.GET.get('page', 1)
 	paginator = Paginator(pops, limit)
-	page = paginator.page(page
+	page = paginator.page(page)
 	return render(request, 'popular.html', {
 		'q': page.pbject_list,
 		'paginator': paginator,

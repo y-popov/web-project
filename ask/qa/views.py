@@ -26,10 +26,11 @@ def popular(request):
 	paginator = Paginator(pops, limit)
 	page = paginator.page(page)
 	return render(request, 'popular.html', {
-		'q': page.pbject_list,
+		'q': page.object_list,
 		'paginator': paginator,
 		'page': page})
 
 def question_page(request, id):
 	q = get_object_or_404(Question, pk=id)
-	return render(request, 'question.html', {'q': q})
+	a = Answer.objects.filter(question = id)[:]
+	return render(request, 'question.html', {'q': q, 'a': a})

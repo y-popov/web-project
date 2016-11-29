@@ -3,11 +3,9 @@
 	<title>QA - main</title>
 </head>
 <body>
-	<ul>
-	{% for x in q %}
-		<h4>{{ x.title }}</h4>
-		<a href="/question/{{ x.pk }}/">Go to question</a>
+	<h4>{{ q.title }}</h4>
+	<p>{{ q.text }}</p>
+	{% for answer in q.answers.all %}
 	{% endfor %}
-	</ul>
 </body>
 </html>

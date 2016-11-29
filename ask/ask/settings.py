@@ -23,6 +23,7 @@ SECRET_KEY = '2!_l$k=@l^c*z_yn__2153&c(@uip1(%@l-aed)$ly-s+ay#i)'
 DEBUG = True
 
 TEMPLATE_DEBUG = True
+TEMPLATE_DIRS = (BASE_DIR+'/templates')
 
 ALLOWED_HOSTS = []
 

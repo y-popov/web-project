@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.core.paginator import Paginator
 from django.shortcuts import get_object_or_404
+from qa.models import Question
 
 # Create your views here.
 def test(request, *args, **kwargs):
@@ -13,7 +14,7 @@ def new_questions(request):
 	page = request.GET.get('page', 1)
 	paginator = Paginator(quests, limit)
 	page = paginator.page(page)
-	return render(request, 'qa/main.html', {
+	return render(request, 'main.html', {
 		'q': page.object_list,
 		'paginator': paginator,
 		'page': page})
@@ -24,11 +25,11 @@ def popular(request):
 	page = request.GET.get('page', 1)
 	paginator = Paginator(pops, limit)
 	page = paginator.page(page
-	return render(request, 'qa/popular.html', {
+	return render(request, 'popular.html', {
 		'q': page.pbject_list,
 		'paginator': paginator,
 		'page': page})
 
 def question_page(request, id):
 	q = get_object_or_404(Question, pk=id)
-	return render(request, 'qa/question.html', {'q': q})
+	return render(request, 'question.html', {'q': q})

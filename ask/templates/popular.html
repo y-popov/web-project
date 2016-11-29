@@ -1,0 +1,24 @@
+<html>
+<head>
+	<title>QA - popular</title>
+</head>
+<body>
+	<ul>
+	{% for x in q %}
+		<h4>{{ x.title }}</h4>
+		<a href="/question/{{ x.pk }}/">Go to question</a>
+	{% endfor %}
+	</ul>
+	<nav>
+	{%for p in paginator.page_range %}
+	{% if p.number == page.number %}
+		<li class="active">
+	{% else %}
+		<li>
+	{% endif %}
+	<a href="{{ paginator.baseurl }}{{ p.number }}">{{ p.number }}</a>
+	</li>
+	{% endfor %}
+	</nav>
+</body>
+</html>

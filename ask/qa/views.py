@@ -25,6 +25,7 @@ def popular(request):
 	limit = 10
 	page = request.GET.get('page', 1)
 	paginator = Paginator(pops, limit)
+	paginator.baseurl = "/popular/?page="
 	page = paginator.page(page)
 	return render(request, 'popular.html', {
 		'q': page.object_list,
@@ -33,5 +34,5 @@ def popular(request):
 
 def question_page(request, id):
 	q = get_object_or_404(Question, pk=id)
-	a = Answer.objects.filter(question = id)[:]
+	a = Answer.objects.filter(question = id)
 	return render(request, 'question.html', {'q': q, 'a': a})

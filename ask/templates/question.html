@@ -5,7 +5,10 @@
 <body>
 	<h4>{{ q.title }}</h4>
 	<p>{{ q.text }}</p>
-	{% for answer in q.answers.all %}
+	<ul>
+	{% for answer in a %}
+		<li>{{ answer.text }}</li>
 	{% endfor %}
+	</ul>
 </body>
 </html>
